@@ -45,13 +45,13 @@ function prepare_extras() {
     # Fetch the mesos egg, needed to build python components.
     mkdir -p third_party
     pushd third_party
-      wget -c https://svn.apache.org/repos/asf/aurora/3rdparty/ubuntu/trusty64/python/mesos.native-${MESOS_VERSION}-py2.7-linux-x86_64.egg
+      wget -nv -c https://svn.apache.org/repos/asf/aurora/3rdparty/ubuntu/trusty64/python/mesos.native-${MESOS_VERSION}-py2.7-linux-x86_64.egg
     popd
 
     # Install thrift, needed for code generation in the scheduler build.
     # TODO(wfarner): Move deb file out of jfarrell's individual hosting.
     thrift_deb=thrift-compiler_0.9.1_amd64.deb
-    wget -c http://people.apache.org/~jfarrell/thrift/0.9.1/contrib/deb/ubuntu/12.04/$thrift_deb
+    wget -nv -c http://people.apache.org/~jfarrell/thrift/0.9.1/contrib/deb/ubuntu/12.04/$thrift_deb
     dpkg --install $thrift_deb
 
     # Include build script in default PATH.
@@ -65,7 +65,7 @@ function prepare_extras() {
 }
 
 function install_mesos {
-  wget -c http://downloads.mesosphere.io/master/ubuntu/12.04/mesos_${MESOS_VERSION}-1.0.ubuntu1204_amd64.deb
+  wget -nv -c http://downloads.mesosphere.io/master/ubuntu/12.04/mesos_${MESOS_VERSION}-1.0.ubuntu1204_amd64.deb
   dpkg --install mesos_${MESOS_VERSION}-1.0.ubuntu1204_amd64.deb
 }
 
