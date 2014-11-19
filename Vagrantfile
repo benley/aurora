@@ -23,6 +23,8 @@ Vagrant.require_version ">= 1.5.0"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "aurora.local"
+  config.cache.auto_detect = true if Vagrant.has_plugin?('vagrant-cachier')
+
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.define "devcluster" do |dev|
