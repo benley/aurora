@@ -23,16 +23,33 @@ Vagrant.require_version ">= 1.5.0"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "aurora.local"
-  config.cache.auto_detect = true if Vagrant.has_plugin?('vagrant-cachier')
+
+  if Vagrant.has_plugin?('vagrant-cachier')
+    config.cache.auto_detect = true
+    config.cache.scope = :box
+    config.cache.synced_folder_opts = { type: :nfs,
+                                        mount_options: [:rw, :tcp] }
+  end
 
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.define "devcluster" do |dev|
-    dev.vm.network :private_network, ip: "192.168.33.7"
+    devcluster_ip = '192.168.33.7'
+
+    dev.vm.hostname = 'vagrant-aurora'
+    dev.vm.network :private_network, ip: devcluster_ip
     dev.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", "2048"]
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     end
+    unless Vagrant.has_plugin?('vagrant-hostsupdater')
+      dev.vm.provision 'shell', inline: "hostname #{devcluster_ip}"
+    end
     dev.vm.provision "shell", path: "examples/vagrant/provision-dev-cluster.sh"
   end
 end
+
+# Set the hostname to the IP address.  This simplifies things for components
+# that want to advertise the hostname to the user, or other components.
+# hostname 192.168.33.7
+

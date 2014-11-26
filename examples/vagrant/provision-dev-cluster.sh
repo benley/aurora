@@ -33,11 +33,6 @@ apt-get -y install \
 update-alternatives --set java /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
 
 readonly IP_ADDRESS=192.168.33.7
-
-# Set the hostname to the IP address.  This simplifies things for components
-# that want to advertise the hostname to the user, or other components.
-hostname $IP_ADDRESS
-
 readonly MESOS_VERSION=0.22.0
 
 function prepare_extras() {
@@ -65,8 +60,10 @@ function prepare_extras() {
 }
 
 function install_mesos {
-  wget -nv -c http://downloads.mesosphere.io/master/ubuntu/12.04/mesos_${MESOS_VERSION}-1.0.ubuntu1204_amd64.deb
-  dpkg --install mesos_${MESOS_VERSION}-1.0.ubuntu1204_amd64.deb
+  echo "deb http://repos.mesosphere.io/ubuntu trusty main" > /etc/apt/sources.list.d/mesosphere.list
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys DF7D54CBE56151BF
+  apt-get update
+  apt-get -qfy install --no-install-recommends "mesos=${MESOS_VERSION}-1.0.ubuntu1404"
 }
 
 function install_cluster_config {
