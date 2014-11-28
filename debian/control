@@ -1,0 +1,39 @@
+Source: aurora
+Priority: optional
+Maintainer: Benjamin Staffin <ben@folsomlabs.com>
+Build-Depends: debhelper (>= 9),
+ default-jdk,
+ python-all-dev,
+Section: net
+Standards-Version: 3.9.5
+Homepage: http://aurora.apache.org
+
+Package: aurora-scheduler
+Architecture: any
+Section: net
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ openjdk-7-jre-headless | default-jre-headless
+Description: Apache Aurora scheduler
+
+Package: aurora-tools
+Architecture: any
+Section: net
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ python (>= 2.7)
+Description: Apache Aurora commandline tools
+ Includes aurora-client, aurora2, and aurora-admin.
+
+Package: aurora-mesos-slave
+Architecture: any
+Section: net
+Depends: ${shlibs:Depends}, ${misc:Depends},
+ python (>= 2.7)
+Description: Apache Aurora slave deployment
+ Aurora garbaage collection executor, Thermos runner, Thermos executor,
+ and Thermos observer
+
+Package: aurora-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Description: Documentation for Apache Aurora
