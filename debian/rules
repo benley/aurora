@@ -3,3 +3,16 @@ DH_VERBOSE = 1
 
 %:
 	dh $@
+
+
+goals = src/main/python/apache/aurora/client/bin:aurora_client
+ src/main/python/apache/aurora/client/cli:aurora2
+ src/main/python/apache/aurora/client/bin:aurora_admin
+ src/main/python/apache/aurora/executor/bin:gc_executor
+ src/main/python/apache/aurora/executor/bin:thermos_executor
+ src/main/python/apache/aurora/executor/bin:thermos_runner
+ src/main/python/apache/thermos/observer/bin:thermos_observer
+
+override_dh_auto_build:
+	./gradlew distTar
+	for goal in $(goals); do ./pants $$goal; done
