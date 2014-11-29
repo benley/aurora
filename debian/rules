@@ -6,16 +6,17 @@ DH_VERBOSE = 1
 
 gradle = /opt/gradle-2.2.1/bin/gradle
 pants = $(CURDIR)/pants
-MESOS_VERSION = 0.20.1
 PANTS_CONFIG_OVERRIDE = $(CURDIR)/debian/pants.ini
 export PANTS_CONFIG_OVERRIDE
 
 override_dh_auto_build:
 	$(gradle) installApp
+	$(pants) src/main/python/apache/aurora/client/bin:aurora_admin
 	$(pants) src/main/python/apache/aurora/client/bin:aurora_client
 	$(pants) src/main/python/apache/aurora/client/cli:aurora2
-	$(pants) src/main/python/apache/aurora/client/bin:aurora_admin
 	$(pants) src/main/python/apache/aurora/executor/bin:gc_executor
 	$(pants) src/main/python/apache/aurora/executor/bin:thermos_executor
 	$(pants) src/main/python/apache/aurora/executor/bin:thermos_runner
+	$(pants) src/main/python/apache/thermos/bin:thermos
+	$(pants) src/main/python/apache/thermos/bin:thermos_ckpt
 	$(pants) src/main/python/apache/thermos/observer/bin:thermos_observer
