@@ -7,6 +7,8 @@ DH_VERBOSE = 1
 gradle = /opt/gradle-2.2.1/bin/gradle
 pants = $(CURDIR)/pants
 MESOS_VERSION = 0.20.1
+PANTS_CONFIG_OVERRIDE = $(CURDIR)/debian/pants.ini
+export PANTS_CONFIG_OVERRIDE
 
 override_dh_auto_build:
 	$(gradle) installApp
