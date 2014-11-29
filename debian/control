@@ -7,7 +7,9 @@ Build-Depends: debhelper (>= 9),
  gradle (>= 2.2) | gradle-2.2.1,
  curl,
  git,
- wget
+ wget,
+ thrift-compiler
+# thrift-compiler (== 0.9.1)
 Section: net
 Standards-Version: 3.9.5
 Homepage: http://aurora.apache.org
