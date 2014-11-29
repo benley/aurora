@@ -13,6 +13,8 @@ goals = src/main/python/apache/aurora/client/bin:aurora_client
  src/main/python/apache/aurora/executor/bin:thermos_runner
  src/main/python/apache/thermos/observer/bin:thermos_observer
 
+gradle = /opt/gradle-2.2.1/bin/gradle
+
 override_dh_auto_build:
-	./gradlew distTar
+	$(gradle) distTar
 	for goal in $(goals); do ./pants $$goal; done
