@@ -1,0 +1,52 @@
+# Defaults for Aurora startup
+
+###
+# Environment variables control the behavior of the Mesos scheduler driver (libmesos).
+GLOG_v=0
+LIBPROCESS_PORT=8083
+#LIBPROCESS_IP=192.168.33.7
+###
+
+###
+# Flags that control the behavior of the JVM.
+#env JAVA_OPTS='-Djava.library.path=/usr/local/lib -Dlog4j.configuration="file:///etc/zookeeper/conf/log4j.properties"'
+###
+
+AURORA_HOME="/var/lib/aurora"
+
+# Name of the cluster. Please change this.
+CLUSTER_NAME="example"
+
+# Listening port for the scheduler
+HTTP_PORT=8081
+
+# Replicated log quorum size. Set to (floor(number_of_schedulers / 2) + 1)
+QUORUM_SIZE=1
+
+# List of zookeeper endpoints
+ZK_ENDPOINTS="localhost:2181"
+
+# Zookeeper path or URL to mesos master
+MESOS_MASTER="zk://${ZK_ENDPOINTS}/mesos/master"
+
+# Zookeeper ServerSet path to register at
+ZK_SERVERSET_PATH="/aurora/scheduler"
+
+# Log path in zookeeper
+ZK_LOGDB_PATH="/aurora/replicated-log"
+
+# Where to store the replicated log on disk
+LOGDB_FILE_PATH="${AURORA_HOME}/scheduler/db"
+
+# Where to store backups on disk
+BACKUP_DIR="${AURORA_HOME}/scheduler/backups"
+
+# Path to thermos executor wrapper script
+THERMOS_EXECUTOR_PATH="/usr/share/aurora/bin/thermos_executor.sh"
+
+# Path to garbage collection executor
+GC_EXECUTOR_PATH="/usr/share/aurora/bin/gc_executor.pex"
+
+# Any args you want to add to the aurora-scheduler invocation:
+EXTRA_SCHEDULER_ARGS=""
+
