@@ -12,7 +12,6 @@ export PANTS_CONFIG_OVERRIDE
 
 override_dh_auto_build:
 	$(gradle) installApp
-	mkdir -p third_party && cd third_party && wget -nv -c "https://svn.apache.org/repos/asf/incubator/aurora/3rdparty/ubuntu/trusty64/python/mesos.native-$(MESOS_VERSION)-py2.7-linux-x86_64.egg"
 	$(pants) src/main/python/apache/aurora/client/bin:aurora_client
 	$(pants) src/main/python/apache/aurora/client/cli:aurora2
 	$(pants) src/main/python/apache/aurora/client/bin:aurora_admin
