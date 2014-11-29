@@ -4,7 +4,10 @@ Maintainer: Benjamin Staffin <ben@folsomlabs.com>
 Build-Depends: debhelper (>= 9),
  default-jdk,
  python-all-dev,
- gradle (>= 2.2) | gradle-2.2.1
+ gradle (>= 2.2) | gradle-2.2.1,
+ curl,
+ git,
+ wget
 Section: net
 Standards-Version: 3.9.5
 Homepage: http://aurora.apache.org

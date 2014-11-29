@@ -1,0 +1,3 @@
+/usr/share/aurora/bin/aurora_admin.pex /usr/bin/aurora-admin
+/usr/share/aurora/bin/aurora_client.pex /usr/bin/aurora
+/usr/share/aurora/bin/aurora2.pex /usr/bin/aurora2
