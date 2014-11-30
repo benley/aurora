@@ -9,7 +9,8 @@ LIBPROCESS_PORT=8083
 
 ###
 # Flags that control the behavior of the JVM.
-#env JAVA_OPTS='-Djava.library.path=/usr/local/lib -Dlog4j.configuration="file:///etc/zookeeper/conf/log4j.properties"'
+#JAVA_OPTS='-Djava.library.path=/usr/local/lib -Dlog4j.configuration="file:///etc/zookeeper/conf/log4j.properties"'
+JAVA_OPTS='-Djava.library.path=/usr/local/lib'
 ###
 
 AURORA_HOME="/var/lib/aurora"
@@ -27,7 +28,7 @@ QUORUM_SIZE=1
 ZK_ENDPOINTS="localhost:2181"
 
 # Zookeeper path or URL to mesos master
-MESOS_MASTER="zk://${ZK_ENDPOINTS}/mesos/master"
+MESOS_MASTER="zk://${ZK_ENDPOINTS}/mesos"
 
 # Zookeeper ServerSet path to register at
 ZK_SERVERSET_PATH="/aurora/scheduler"
@@ -49,4 +50,3 @@ GC_EXECUTOR_PATH="/usr/share/aurora/bin/gc_executor.pex"
 
 # Any args you want to add to the aurora-scheduler invocation:
 EXTRA_SCHEDULER_ARGS=""
-

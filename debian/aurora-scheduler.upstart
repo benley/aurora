@@ -18,6 +18,7 @@ post-stop exec sleep 5
 
 script
   . /etc/default/aurora-scheduler
+  export JAVA_OPTS GLOG_v LIBPROCESS_PORT LIBPROCESS_IP
   exec /usr/share/aurora/bin/aurora-scheduler \
     -cluster_name="$CLUSTER_NAME" \
     -http_port="$HTTP_PORT" \

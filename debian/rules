@@ -23,4 +23,5 @@ override_dh_auto_build:
 
 override_dh_installinit:
 	dh_installinit --name=aurora-thermos-observer
+	dh_installinit --name=aurora-thermos-executor
 	dh_installinit
