@@ -20,6 +20,7 @@ override_dh_auto_build:
 	$(pants) src/main/python/apache/thermos/bin:thermos
 	$(pants) src/main/python/apache/thermos/bin:thermos_ckpt
 	$(pants) src/main/python/apache/thermos/observer/bin:thermos_observer
+	debian/embed-runner-in-executor.py
 
 override_dh_installinit:
 	dh_installinit --name=aurora-thermos-observer
