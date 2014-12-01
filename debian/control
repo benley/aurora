@@ -1,4 +1,4 @@
-Source: aurora
+Source: apache-aurora
 Priority: optional
 Maintainer: Benjamin Staffin <ben@folsomlabs.com>
 Build-Depends: debhelper (>= 9),
@@ -23,6 +23,11 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
 Recommends: aurora-tools
 Suggests: aurora-doc
 Description: Apache Aurora scheduler
+ Aurora is service scheduler that runs on top of Apache Mesos, enabling you to
+ run long-running services that take advantage of Apache Mesos' scalability,
+ fault-tolerance, and resource isolation.
+ .
+ This package contains the Aurora Scheduler daemon.
 
 Package: aurora-tools
 Architecture: any
@@ -31,7 +36,12 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
  ${python:Depends}
 Suggests: aurora-doc
 Description: Apache Aurora commandline tools
- Includes aurora-client, aurora2, and aurora-admin.
+ Aurora is service scheduler that runs on top of Apache Mesos, enabling you to
+ run long-running services that take advantage of Apache Mesos' scalability,
+ fault-tolerance, and resource isolation.
+ .
+ This package includes commandline utilities for interacting with an Aurora
+ scheduler: aurora-client, aurora2, and aurora-admin.
 
 Package: aurora-mesos-slave
 Architecture: any
@@ -41,11 +51,21 @@ Depends: ${shlibs:Depends}, ${misc:Depends},
 Recommends: aurora-tools
 Suggests: aurora-doc
 Description: Apache Aurora slave deployment
- Aurora garbage collection executor, Thermos runner, Thermos executor,
- and Thermos observer
+ Aurora is service scheduler that runs on top of Apache Mesos, enabling you to
+ run long-running services that take advantage of Apache Mesos' scalability,
+ fault-tolerance, and resource isolation.
+ .
+ This package contains the components necessary on to use a Mesos slave as an
+ Aurora node: the garbage collection executor, Thermos runner, Thermos
+ executor, and Thermos observer
 
 Package: aurora-doc
 Architecture: all
 Section: doc
 Depends: ${misc:Depends}
 Description: Documentation for Apache Aurora
+ Aurora is service scheduler that runs on top of Apache Mesos, enabling you to
+ run long-running services that take advantage of Apache Mesos' scalability,
+ fault-tolerance, and resource isolation.
+ .
+ This package contains documentation.

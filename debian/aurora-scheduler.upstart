@@ -31,7 +31,6 @@ script
     -backup_dir="$BACKUP_DIR" \
     -thermos_executor_path="$THERMOS_EXECUTOR_PATH" \
     -gc_executor_path="$GC_EXECUTOR_PATH" \
-    -enable_beta_updater=true \
-    -vlog=INFO \
+    -vlog=$LOG_LEVEL \
     $EXTRA_SCHEDULER_ARGS
 end script

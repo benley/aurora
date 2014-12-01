@@ -1,5 +1,5 @@
-aurora (0.6.0-incubating-0~0) trusty; urgency=medium
+apache-aurora (0.6.0-incubating-0~trusty1) trusty; urgency=medium
 
-  * Initial release. (Closes: #XXXXXX)
+  * Initial release.
 
  -- Benjamin Staffin <ben@folsomlabs.com>  Fri, 28 Nov 2014 14:25:08 -0800

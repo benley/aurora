@@ -42,11 +42,14 @@ LOGDB_FILE_PATH="${AURORA_HOME}/scheduler/db"
 # Where to store backups on disk
 BACKUP_DIR="${AURORA_HOME}/scheduler/backups"
 
-# Path to thermos executor wrapper script
+# Path to thermos executor or wrapper script
 THERMOS_EXECUTOR_PATH="/usr/share/aurora/bin/thermos_executor.sh"
 
 # Path to garbage collection executor
 GC_EXECUTOR_PATH="/usr/share/aurora/bin/gc_executor.pex"
 
+# Scheduler log verbosity
+LOG_LEVEL="INFO"
+
 # Any args you want to add to the aurora-scheduler invocation:
-EXTRA_SCHEDULER_ARGS=""
+EXTRA_SCHEDULER_ARGS="-enable_beta_updater=true"
