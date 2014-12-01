@@ -33,7 +33,7 @@ Package: aurora-tools
 Architecture: any
 Section: net
 Depends: ${shlibs:Depends}, ${misc:Depends},
- ${python:Depends}
+ python2.7
 Suggests: aurora-doc
 Description: Apache Aurora commandline tools
  Aurora is service scheduler that runs on top of Apache Mesos, enabling you to
@@ -47,7 +47,7 @@ Package: aurora-mesos-slave
 Architecture: any
 Section: net
 Depends: ${shlibs:Depends}, ${misc:Depends},
- ${python:Depends}
+ python2.7
 Recommends: aurora-tools
 Suggests: aurora-doc
 Description: Apache Aurora slave deployment

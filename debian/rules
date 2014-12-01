@@ -2,7 +2,7 @@
 DH_VERBOSE = 1
 
 %:
-	dh $@ --exclude=aurora-scheduler.bat --with=python-support
+	dh $@ --exclude=aurora-scheduler.bat
 
 gradle = /opt/gradle-2.2.1/bin/gradle
 pants = $(CURDIR)/pants
