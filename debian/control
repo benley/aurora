@@ -18,7 +18,8 @@ Package: aurora-scheduler
 Architecture: any
 Section: net
 Depends: ${shlibs:Depends}, ${misc:Depends},
- openjdk-7-jre-headless | default-jre-headless
+ openjdk-7-jre-headless | default-jre-headless,
+ mesos (>= 0.20.1)
 Recommends: aurora-tools
 Suggests: aurora-doc
 Description: Apache Aurora scheduler
