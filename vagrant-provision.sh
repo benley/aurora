@@ -28,7 +28,7 @@ apt-get update
 apt-get -qfy install aurora-scheduler aurora-mesos-slave aurora-tools
 
 service aurora-scheduler stop ||true
-service aurora-thermos-observer stop ||true
+service aurora-thermos stop ||true
 service mesos-master stop ||true
 service mesos-slave stop ||true
 
@@ -55,4 +55,4 @@ echo "$HOSTNAME" > /etc/mesos-slave/attributes/host
 service mesos-master start
 service mesos-slave start
 service aurora-scheduler start
-service aurora-thermos-observer start
+service aurora-thermos start
