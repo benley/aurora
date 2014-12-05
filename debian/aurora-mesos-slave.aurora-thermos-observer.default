@@ -1,4 +1,0 @@
-# Defaults for thermos executor wrapper
-
-ZK_ENSEMBLE="localhost:2181"
-ZK_SERVERSET_PATH="/aurora"

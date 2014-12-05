@@ -1,0 +1,5 @@
+# Defaults for thermos executor wrapper
+
+# These control where thermos does service announcement
+ANNOUNCER_ENSEMBLE="localhost:2181"
+ANNOUNCER_SERVERSET_PATH="/aurora/svc"

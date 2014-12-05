@@ -16,6 +16,8 @@ start on stopped rc RUNLEVEL=[2345]
 respawn
 post-stop exec sleep 5
 
+pre-start exec mkdir -p /var/run/thermos
+
 exec /usr/share/aurora/bin/thermos_observer.pex \
   --root=/var/run/thermos \
   --port=1338 \
