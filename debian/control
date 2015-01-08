@@ -18,7 +18,7 @@ Package: aurora-scheduler
 Architecture: any
 Section: net
 Depends: ${shlibs:Depends}, ${misc:Depends},
- openjdk-7-jre-headless | default-jre-headless,
+ openjdk-7-jre-headless | java-runtime-headless (>= 7),
  mesos (>= 0.20.1)
 Recommends: aurora-tools
 Suggests: aurora-doc
@@ -43,14 +43,16 @@ Description: Apache Aurora commandline tools
  This package includes commandline utilities for interacting with an Aurora
  scheduler: aurora-client, aurora2, and aurora-admin.
 
-Package: aurora-mesos-slave
+Package: aurora-executor
 Architecture: any
 Section: net
+Replaces: aurora-mesos-slave
+Breaks: aurora-mesos-slave
 Depends: ${shlibs:Depends}, ${misc:Depends},
  python2.7
 Recommends: aurora-tools
 Suggests: aurora-doc
-Description: Apache Aurora slave deployment
+Description: Apache Aurora executor deployment
  Aurora is service scheduler that runs on top of Apache Mesos, enabling you to
  run long-running services that take advantage of Apache Mesos' scalability,
  fault-tolerance, and resource isolation.
