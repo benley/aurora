@@ -23,5 +23,5 @@ override_dh_auto_build:
 	debian/embed-runner-in-executor.py
 
 override_dh_installinit:
-	dh_installinit --name=aurora-thermos
+	dh_installinit --name=thermos
 	dh_installinit
