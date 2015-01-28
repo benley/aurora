@@ -1,0 +1,7 @@
+Index: incubator-aurora/buildSrc/gradle.properties
+===================================================================
+--- incubator-aurora.orig/buildSrc/gradle.properties	2015-01-28 05:47:13.569057656 -0800
++++ incubator-aurora/buildSrc/gradle.properties	2015-01-28 05:48:39.929666473 -0800
+@@ -1 +1 @@
+-GRADLE_VERSION = 2.2
++GRADLE_VERSION = 2.2.1
