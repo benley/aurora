@@ -25,10 +25,10 @@ deb [trusted=yes] file://$HOME/build-area ./
 EOF
 
 apt-get update
-apt-get -qfy install aurora-scheduler aurora-mesos-slave aurora-tools
+apt-get -qfy install aurora-scheduler aurora-executor aurora-tools
 
 service aurora-scheduler stop ||true
-service aurora-thermos stop ||true
+service thermos stop ||true
 service mesos-master stop ||true
 service mesos-slave stop ||true
 
