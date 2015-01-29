@@ -50,7 +50,9 @@ Replaces: aurora-mesos-slave
 Breaks: aurora-mesos-slave
 Depends: ${shlibs:Depends}, ${misc:Depends},
  python2.7
-Recommends: aurora-tools
+Recommends:
+ aurora-tools,
+ lxc-docker (>= 1.0) | docker.io (>= 1.0)
 Suggests: aurora-doc
 Description: Apache Aurora executor deployment
  Aurora is service scheduler that runs on top of Apache Mesos, enabling you to
