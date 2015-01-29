@@ -46,8 +46,9 @@ cat > /etc/aurora/clusters.json <<EOF
 EOF
 
 if [[ ! -e /var/lib/aurora/scheduler/db/LOG ]]; then
-  mesos-log initialize --path=/var/lib/aurora/scheduler/db
   mkdir -p /var/lib/aurora/scheduler/db
+  chown -R aurora:aurora /var/lib/aurora
+  sudo -u aurora -- mesos-log initialize --path=/var/lib/aurora/scheduler/db
 fi
 
 mkdir -p /etc/mesos-slave/attributes
