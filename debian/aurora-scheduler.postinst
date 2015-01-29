@@ -20,7 +20,8 @@ set -e
 
 case "$1" in
     configure)
-      adduser --quiet --system --home /var/lib/aurora aurora
+      adduser --quiet --group --system --home /var/lib/aurora aurora
+      chown -R aurora:aurora /var/lib/aurora
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
