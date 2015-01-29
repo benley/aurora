@@ -15,14 +15,15 @@ apt-get -qfy install pbuilder git-buildpackage
 cd /vagrant
 /usr/lib/pbuilder/pbuilder-satisfydepends
 mkdir -p "$HOME/build-area"
-git-buildpackage --git-export-dir="$HOME/build-area" -us -uc --git-ignore-new
 
-cd "$HOME/build-area"
-dpkg-scanpackages . > Packages
+if [[ ! -e "$HOME/build-area/_build_finished_" ]]; then
+  git-buildpackage --git-export-dir="$HOME/build-area" -us -uc --git-ignore-new
+  cd "$HOME/build-area"
+  dpkg-scanpackages . > Packages
 
-cat > /etc/apt/sources.list.d/local.list <<EOF
-deb [trusted=yes] file://$HOME/build-area ./
-EOF
+  echo "deb [trusted=yes] file://$HOME/build-area ./" > /etc/apt/sources.list.d/local.list
+  touch "$HOME/build-area/_build_finished_"
+fi
 
 apt-get update
 apt-get -qfy install aurora-scheduler aurora-executor aurora-tools
@@ -44,8 +45,10 @@ cat > /etc/aurora/clusters.json <<EOF
 }]
 EOF
 
-mkdir -p /var/lib/aurora/scheduler/db
-mesos-log initialize --path=/var/lib/aurora/scheduler/db
+if [[ ! -e /var/lib/aurora/scheduler/db/LOG ]]; then
+  mesos-log initialize --path=/var/lib/aurora/scheduler/db
+  mkdir -p /var/lib/aurora/scheduler/db
+fi
 
 mkdir -p /etc/mesos-slave/attributes
 echo "/var/lib/mesos" > /etc/mesos-slave/work_dir
@@ -55,4 +58,4 @@ echo "$HOSTNAME" > /etc/mesos-slave/attributes/host
 service mesos-master start
 service mesos-slave start
 service aurora-scheduler start
-service aurora-thermos start
+service thermos start

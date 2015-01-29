@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.cache.scope = :box
     config.cache.synced_folder_opts = {
       type: :nfs,
-      mount_options: [:rw, :tcp]
+      mount_options: [:rw, :tcp, 'vers=3']
     }
   end
 
