@@ -1,3 +1,9 @@
+apache-aurora (0.7.0-rc2-0~trusty3) trusty; urgency=medium
+
+  * aurora-tools: fixed /usr/bin/aurora symlink, dropped /usr/bin/aurora2
+
+ -- Benjamin Staffin <ben@folsomlabs.com>  Fri, 30 Jan 2015 15:35:23 -0800
+
 apache-aurora (0.7.0-rc2-0~trusty2) trusty; urgency=medium
 
   * [3fd6b5c] Update vagrant script to match package updates
