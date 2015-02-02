@@ -18,8 +18,11 @@ post-stop exec sleep 5
 
 pre-start exec mkdir -p /var/run/thermos
 
-exec /usr/share/aurora/bin/thermos_observer.pex \
-  --root=/var/run/thermos \
-  --port=1338 \
-  --log_to_disk=NONE \
-  --log_to_stderr=google:INFO
+script
+  [ -r /etc/default/thermos ] && . /etc/default/thermos
+  exec start-stop-daemon --start --exec /usr/sbin/thermos_observer -- \
+    --root=/var/run/thermos \
+    --port=${OBSERVER_PORT:-1338} \
+    --log_to_disk=NONE \
+    --log_to_stderr=google:INFO
+end script

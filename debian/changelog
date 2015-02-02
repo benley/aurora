@@ -1,3 +1,12 @@
+apache-aurora (0.7.0-rc3-1~trusty1) trusty; urgency=medium
+
+  * Added sysvinit script for thermos_observer to improve compatibility with
+    Debian.
+  * Listening port for thermos_observer is now configurable in
+    /etc/default/thermos.
+
+ -- Benjamin Staffin <ben@folsomlabs.com>  Mon, 02 Feb 2015 12:47:33 -0800
+
 apache-aurora (0.7.0-rc3-0~trusty1) trusty; urgency=medium
 
   * New upstream release.

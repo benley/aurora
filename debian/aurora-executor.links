@@ -1,1 +1,2 @@
 /usr/share/aurora/bin/thermos.pex /usr/bin/thermos
+/usr/share/aurora/bin/thermos_observer.pex /usr/sbin/thermos_observer
