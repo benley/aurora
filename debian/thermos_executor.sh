@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-if [ -e /etc/default/aurora-thermos ]; then
-  . /etc/default/aurora-thermos
+if [ -e /etc/default/thermos ]; then
+  . /etc/default/thermos
 fi
 
 exec /usr/share/aurora/bin/thermos_executor.pex \

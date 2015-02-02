@@ -1,3 +1,10 @@
+apache-aurora (0.7.0-rc3-0~trusty1) trusty; urgency=medium
+
+  * New upstream release.
+  * Fixed thermos_executor.sh wrapper to correctly source /etc/default/thermos
+
+ -- Benjamin Staffin <ben@folsomlabs.com>  Mon, 02 Feb 2015 11:14:32 -0800
+
 apache-aurora (0.7.0-rc2-0~trusty3) trusty; urgency=medium
 
   * aurora-tools: fixed /usr/bin/aurora symlink, dropped /usr/bin/aurora2
