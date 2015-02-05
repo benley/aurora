@@ -1,8 +1,4 @@
-# Defaults for thermos executor wrapper and thermos observer
-
-# These control where thermos does service announcement
-ANNOUNCER_ENSEMBLE="localhost:2181"
-ANNOUNCER_SERVERSET_PATH="/aurora/svc"
+# Defaults for thermos observer
 
 # Listen port for thermos_observer
 OBSERVER_PORT=1338

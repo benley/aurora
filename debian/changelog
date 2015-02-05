@@ -1,3 +1,14 @@
+apache-aurora (0.7.0-rc3-2~trusty1) trusty; urgency=medium
+
+  * Expose more parameters in /etc/default/aurora-scheduler for container
+    types and Thermos executor flags/resources.
+  * Eliminate the thermos_executor.sh wrapper script in favor of using
+    -thermos_executor_flags on the scheduler.
+  * Don't package /var/run/thermos; create it at runtime.
+  * Mildly cleanup embed-runner-in-executor.py
+
+ -- Benjamin Staffin <ben@folsomlabs.com>  Wed, 04 Feb 2015 21:12:02 -0800
+
 apache-aurora (0.7.0-rc3-1~trusty1) trusty; urgency=medium
 
   * Added sysvinit script for thermos_observer to improve compatibility with

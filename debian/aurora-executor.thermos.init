@@ -43,6 +43,7 @@ ARGS="--root=/var/run/thermos
 case "$1" in
   start)
     log_daemon_msg "Starting $DESC" "$NAME"
+    mkdir -p /var/run/thermos
     start_daemon -p $PIDFILE $DAEMON $ARGS
     log_end_msg $?
     ;;

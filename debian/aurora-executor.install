@@ -5,6 +5,4 @@ dist/thermos_executor.pex /usr/share/aurora/bin
 dist/thermos_observer.pex /usr/share/aurora/bin
 dist/thermos_runner.pex /usr/share/aurora/bin
 
-debian/thermos_executor.sh /usr/share/aurora/bin
-
 debian/clusters.json /etc/aurora
