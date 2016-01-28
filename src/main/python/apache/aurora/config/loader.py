@@ -14,6 +14,8 @@
 
 import pkgutil
 
+import json
+import _jsonnet as jsonnet
 from pystachio.config import Config as PystachioConfig
 
 from apache.aurora.config.schema import base as base_schema
@@ -64,12 +66,19 @@ class AuroraConfigLoader(PystachioConfig):
 
   @classmethod
   def load_json(cls, filename):
-    with open(filename) as fp:
-      return base_schema.Job.json_load(fp)
+    parsed = json.loads(jsonnet.evaluate_file(filename))
+    parsed.update({
+      'jobs': [base_schema.Job(x) for x in parsed.get('jobs', [])]
+    })
+    return parsed
 
   @classmethod
   def loads_json(cls, string):
-    return base_schema.Job.json_loads(string)
+    parsed = json.loads(jsonnet.evaluate_snippet(src=string, filename="-"))
+    parsed.update({
+      'jobs': [base_schema.Job(x) for x in parsed.get('jobs', [])]
+    })
+    return parsed
 
 
 AuroraConfigLoader.flush_schemas()

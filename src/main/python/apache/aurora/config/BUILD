@@ -19,6 +19,7 @@ python_library(
   sources = rglobs('*.py'),
   dependencies = [
     '3rdparty/python:pystachio',
+    '3rdparty/python:jsonnet',
     '3rdparty/python:twitter.common.lang',
     'api/src/main/thrift/org/apache/aurora/gen',
     'src/main/python/apache/aurora/common',
